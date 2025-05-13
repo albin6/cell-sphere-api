@@ -277,7 +277,11 @@ user_router.get(
 
 user_router
   .route("/orders/:orderId")
-  .get(authenticate_token, check_role(["user"]), get_specific_order_details)
+  .get(
+    authenticate_token,
+    check_role(["user", "admin"]),
+    get_specific_order_details
+  )
   .patch(authenticate_token, check_role(["user"]), cancel_order);
 
 // re payment
