@@ -271,7 +271,7 @@ user_router.post(
 user_router.get(
   "/orders",
   authenticate_token,
-  check_role(["user"]),
+  check_role(["user", "admin"]),
   get_user_specific_orders
 );
 
